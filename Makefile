@@ -32,7 +32,7 @@ CCFLAGS= -g -std=c99 -Wall -Werror
 # The dependencies of "all" are the files (or make targets) that we want to build.
 #
 
-all: test_mystring test
+all: test_list test
 
 # Compile all .c files into .o files
 # % matches all (like * in a command)
@@ -43,13 +43,13 @@ all: test_mystring test
 
 
 # Build test_mystring if necessary
-test_mystring: mystring.o test_mystring.o
-	$(CC) -o test_mystring mystring.o test_mystring.o
+test_list: list.o test_list.o
+	$(CC) -o test_list list.o test_list.o
 
-test: test_mystring
-	./test_mystring
+test: test_list
+	./test_list
 
 
 clean:
-	rm -f core *.o test_mystring
+	rm -f core *.o test_list
 
